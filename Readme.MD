@@ -48,7 +48,7 @@ DELETE /api/ContactAPI/Id - Delete contact
 
 
 # Install:
-** 1) Clone from git or download and unpack archive, launch Contacts.sln
+** 1) Clone from git or download (https://drive.google.com/file/d/1Si1w6XTNKWStfvM2f2yVcjTx0HtlFK99/view?usp=drive_link) and unpack archive, launch Contacts.sln
 ** 2) Dependency packages will be installed automatically
 [Microsoft.EntityFrameworkCore (8.0.8) 
 Microsoft.EntityFrameworkCore.Design
@@ -73,7 +73,7 @@ FullAddress and Messenger tables are related to main card so have foreign key. T
 
 Инструкции:
 1) установка
-* Клонируйте из git либо скачайте архив по ссылке, распакуйте и запустите файл Contacts.sln
+* Клонируйте из git либо скачайте архив по ссылке (https://drive.google.com/file/d/1Si1w6XTNKWStfvM2f2yVcjTx0HtlFK99/view?usp=drive_link), распакуйте и запустите файл Contacts.sln
 * пакеты-зависимости установятся автоматически
 [Microsoft.EntityFrameworkCore (8.0.8) 
 Microsoft.EntityFrameworkCore.Design
