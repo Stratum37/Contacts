@@ -1,9 +1,9 @@
 # Description
 Provided solution implements demo of layered application to work with contacts via web or API. App stores data in database.
 Each contact consists of 3 parts:
-** - Contact card 
-** - FullAddress card (has relation to Contact card: FK => Contact.Id. Can be hidden from API requests)
-** - Messenger card (has relation to Contact card: FK => Contact.Id. Can be hidden from API requests)
+- Contact card 
+- FullAddress card (has relation to Contact card: FK => Contact.Id. Can be hidden from API requests)
+- Messenger card (has relation to Contact card: FK => Contact.Id. Can be hidden from API requests)
 For each contact it's possible to adjust if API able to retreive messenger or address data. Restrictions applied to API retreiving only. Data editing via API isn't restricted
 Despite native input validation capabilities, both controllers (for Web and for API) implement simple checks if required data presented. Detailed error data implemented for some errors.
 
