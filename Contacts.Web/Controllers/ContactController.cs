@@ -1,8 +1,10 @@
 ﻿using Contacts.Domain.Entities;
 using Contacts.Domain.Entities.VM;
 using Contacts.Infrastructure.Data;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.IO;
@@ -12,10 +14,13 @@ namespace Contacts.Web.Controllers
     public class ContactController : Controller
     {
         private readonly ApplicationDbContext _db;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public ContactController(ApplicationDbContext db)
+
+        public ContactController(ApplicationDbContext db, IWebHostEnvironment webHostEnvironment)
         {
             _db = db;
+            _webHostEnvironment = webHostEnvironment;
         }
         
         public IActionResult ContactList()
@@ -101,7 +106,7 @@ namespace Contacts.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Contact(AdminContactVM adminContactVM, bool isAdressVisible, bool isMessengerVisible)
+        public IActionResult Contact(AdminContactVM adminContactVM, bool isAdressVisible, bool isMessengerVisible, IFormFile? FilePhoto)
         {
             if (ModelState.IsValid)
             {
@@ -111,6 +116,29 @@ namespace Contacts.Web.Controllers
                     var ContactDb = _db.Contacts.FirstOrDefault(c => c.Id == adminContactVM.ContactId);
                     if (ContactDb != null)  // Checking if record found and loaded.
                     {
+                        if(FilePhoto != null)
+                        {
+                            string wwwRootPath = _webHostEnvironment.WebRootPath;
+                            string FileName = Guid.NewGuid().ToString() + Path.GetExtension(FilePhoto.FileName);
+                            string FolderPath = Path.Combine(wwwRootPath, @"images\photo");
+
+                            if(!ContactDb.PhotoURL.IsNullOrEmpty())
+                            {
+                                string OldFilePath = Path.Combine(FolderPath, ContactDb.PhotoURL);
+                                if (System.IO.File.Exists(OldFilePath))
+                                {
+                                    System.IO.File.Delete(OldFilePath);
+                                }
+                            }
+
+                            using (var filestream = new FileStream(Path.Combine(FolderPath, FileName), FileMode.Create))
+                            {
+                                FilePhoto.CopyTo(filestream);
+                            }
+                            ContactDb.PhotoURL = @"\images\photo\" + FileName;
+                            isUpdated = true;
+                        }
+
                         if (ContactDb.ContactEmail != adminContactVM.ContactEmail)
                         { 
                             ContactDb.ContactEmail = adminContactVM.ContactEmail; 

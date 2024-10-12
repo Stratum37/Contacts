@@ -14,135 +14,157 @@
             }
         </div>
     </div>
-
-    <div class="card-body p-4">
-        <form id="contact-editor" class="row" method="post">
-            <input asp-for="ContactId" hidden />
-            <!--                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>-->
-            <div class="form-floating mb-3 col-4">
-                <input asp-for="ContactFirstName" class="form-control" aria-required="true" placeholder="Contact First Name" />
-                <label asp-for="ContactFirstName" class="ms-2 text-muted">First Name</label>
-                <span asp-validation-for="ContactFirstName" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3 col-4">
-                <input asp-for="ContactLastName" class="form-control" aria-required="true" placeholder="Contact Last Name" />
-                <label asp-for="ContactLastName" class="ms-2 text-muted">Last Name</label>
-                <span asp-validation-for="ContactLastName" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3 col-4">
-                <input asp-for="ContactPhoneNumber" class="form-control" aria-required="true" placeholder="Phone number" />
-                <label asp-for="ContactPhoneNumber" class="ms-2 text-muted">Phone number</label>
-                <span asp-validation-for="ContactPhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3 col-4">
-                <input asp-for="ContactEmail" class="form-control" aria-required="true" placeholder="Email" />
-                <label asp-for="ContactEmail" class="ms-2 text-muted">Email</label>
-                <span asp-validation-for="ContactEmail" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3 col-4">
-                <textarea asp-for="Description" class="form-control" aria-required="true" placeholder="Description"></textarea>
-                <label asp-for="Description" class="ms-2 text-muted">Description</label>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <hr />
-
-            <div>
-                <input type="checkbox" asp-for="isAdressVisible" aria-required="true" placeholder="Показывать адрес через API" />
-                <label asp-for="isAdressVisible" style="font-size:small" class="ms-2 text-muted">Показывать адрес через API</label>
-            </div>
-            <div>
-                <input asp-for="@Model.isMessengerVisible" aria-required="true" placeholder="Показывать мессенджеры через API" />
-                <label asp-for="isMessengerVisible" style="font-size:small" class="ms-2 text-muted">Показывать мессенджеры через API</label>
-            </div>
-            <hr />
-            <div class="form-floating mb-3 col-4">
-                <input asp-for="VMMessenger.MainEmail" class="form-control" aria-required="true" placeholder="Messenger. Email" />
-                <label asp-for="VMMessenger.MainEmail" class="ms-2 text-muted">Messengers. Main email</label>
-                <span asp-validation-for="VMMessenger.MainEmail" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3 col-4">
-                <input asp-for="VMMessenger.WhatsAppName" class="form-control" aria-required="true" placeholder="WhatsApp Name" />
-                <label asp-for="VMMessenger.WhatsAppName" class="ms-2 text-muted">WhatsApp Name</label>
-                <span asp-validation-for="VMMessenger.WhatsAppName" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3 col-4">
-                <input asp-for="VMMessenger.WhatsAppNumber" class="form-control" aria-required="true" placeholder="Messenger. WhatsApp phone number" />
-                <label asp-for="VMMessenger.WhatsAppNumber" class="ms-2 text-muted">Messenger. WhatsApp phone number</label>
-                <span asp-validation-for="VMMessenger.WhatsAppNumber" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3 col-4">
-                <input asp-for="VMMessenger.TelegramName" class="form-control" aria-required="true" placeholder="TelegramName" />
-                <label asp-for="VMMessenger.TelegramName" class="ms-2 text-muted">TelegramName</label>
-                <span asp-validation-for="VMMessenger.TelegramName" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3 col-4">
-                <input asp-for="VMMessenger.TelegramNick" class="form-control" aria-required="true" placeholder="TelegramNick" />
-                <label asp-for="VMMessenger.TelegramNick" class="ms-2 text-muted">TelegramNick</label>
-                <span asp-validation-for="VMMessenger.TelegramNick" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3 col-4">
-                <input asp-for="VMMessenger.TelegramPhoneNumber" class="form-control" aria-required="true" placeholder="TelegramPhoneNumber" />
-                <label asp-for="VMMessenger.TelegramPhoneNumber" class="ms-2 text-muted">TelegramPhoneNumber</label>
-                <span asp-validation-for="VMMessenger.TelegramPhoneNumber" class="text-danger"></span>
-            </div>
-
-            <hr />
-
-            <div class="form-floating mb-3 col-4">
-                <input asp-for="VMAddress.PostalCode" class="form-control" aria-required="true" placeholder="PostalCode" />
-                <label asp-for="VMAddress.PostalCode" class="ms-2 text-muted">PostalCode</label>
-                <span asp-validation-for="VMAddress.PostalCode" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3 col-4">
-                <input asp-for="VMAddress.Country" class="form-control" aria-required="true" placeholder="Country" />
-                <label asp-for="VMAddress.Country" class="ms-2 text-muted">Country</label>
-                <span asp-validation-for="VMAddress.Country" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3 col-4">
-                <input asp-for="VMAddress.City" class="form-control" aria-required="true" placeholder="City" />
-                <label asp-for="VMAddress.City" class="ms-2 text-muted">City</label>
-                <span asp-validation-for="VMAddress.City" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3 col-4">
-                <input asp-for="VMAddress.Street" class="form-control" aria-required="true" placeholder="Street" />
-                <label asp-for="VMAddress.Street" class="ms-2 text-muted">Street</label>
-                <span asp-validation-for="VMAddress.Street" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3 col-4">
-                <input asp-for="VMAddress.BuildingNumber" class="form-control" aria-required="true" placeholder="BuildingNumber" />
-                <label asp-for="VMAddress.BuildingNumber" class="ms-2 text-muted">BuildingNumber</label>
-                <span asp-validation-for="VMAddress.BuildingNumber" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3 col-4">
-                <input asp-for="VMAddress.Flat" class="form-control" aria-required="true" placeholder="Flat" />
-                <label asp-for="VMAddress.Flat" class="ms-2 text-muted">Flat</label>
-                <span asp-validation-for="VMAddress.Flat" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3 col-12">
-                <input asp-for="VMAddress.Details" class="form-control" aria-required="true" placeholder="Flat" />
-                <label asp-for="VMAddress.Details" class="ms-2 text-muted">Flat</label>
-                <span asp-validation-for="VMAddress.Details" class="text-danger"></span>
-            </div>
-
-            <div class="row">
-                <div class="col-3 text-center">
-                    <a asp-controller="Contact" asp-action="ContactList" class="btn btn-secondary">
-                        Back to Contact List
-                    </a>
+    <div class="card-body pt-3 p-1">
+        <div class="how-section1">
+            <form id="contact-editor" class="row" method="post" enctype="multipart/form-data">
+                <div class="col-2 how-img">
+                    <img src="@Model.PhotoURL" class="img-fluid" alt="" style="width:100%"/>
+                    <br /><br />
+                    <div>
+                        <input type="file" name="Foto" asp-for="PhotoURL" class="form-control" />
+                    </div>
                 </div>
-                <div class="col-3 text-center">
-                    <a asp-controller="Contact" asp-action="DeleteContact" asp-route-ContactId="@Model.ContactId" class="btn btn-danger">
-                        Delete
-                    </a>
+                <div class="col-10 row">
+                    <input asp-for="ContactId" hidden />
+                    <!--                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>-->
+
+                        <div class="form-floating mb-3 col-6">
+                            <input asp-for="ContactFirstName" class="form-control" aria-required="true" placeholder="Contact First Name" />
+                            <label asp-for="ContactFirstName" class="ms-2 text-muted">First Name</label>
+                            <span asp-validation-for="ContactFirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3 col-6">
+                            <input asp-for="ContactLastName" class="form-control" aria-required="true" placeholder="Contact Last Name" />
+                            <label asp-for="ContactLastName" class="ms-2 text-muted">Last Name</label>
+                            <span asp-validation-for="ContactLastName" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3 col-6">
+                            <input asp-for="ContactPhoneNumber" class="form-control" aria-required="true" placeholder="Phone number" />
+                            <label asp-for="ContactPhoneNumber" class="ms-2 text-muted">Phone number</label>
+                            <span asp-validation-for="ContactPhoneNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3 col-6">
+                            <input asp-for="ContactEmail" class="form-control" aria-required="true" placeholder="Email" />
+                            <label asp-for="ContactEmail" class="ms-2 text-muted">Email</label>
+                            <span asp-validation-for="ContactEmail" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3 col-12">
+                            <textarea asp-for="Description" class="form-control" aria-required="true" placeholder="Description"></textarea>
+                            <label asp-for="Description" class="ms-2 text-muted">Description</label>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                    <hr />
+                    <div>
+                        <input type="checkbox" asp-for="isAdressVisible" aria-required="true" placeholder="Показывать адрес через API" />
+                        <label asp-for="isAdressVisible" style="font-size:small" class="ms-2 text-muted">Показывать адрес через API</label>
+                    </div>
+                    <div>
+                        <input asp-for="@Model.isMessengerVisible" aria-required="true" placeholder="Показывать мессенджеры через API" />
+                        <label asp-for="isMessengerVisible" style="font-size:small" class="ms-2 text-muted">Показывать мессенджеры через API</label>
+                    </div>
+
+                    <hr />
+                    <div class="form-floating mb-3 col-12">
+                        <input asp-for="VMMessenger.MainEmail" class="form-control" aria-required="true" placeholder="Messenger. Email" />
+                        <label asp-for="VMMessenger.MainEmail" class="ms-2 text-muted">Messengers. Main email</label>
+                        <span asp-validation-for="VMMessenger.MainEmail" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-6">
+                        <input asp-for="VMMessenger.WhatsAppName" class="form-control" aria-required="true" placeholder="WhatsApp Name" />
+                        <label asp-for="VMMessenger.WhatsAppName" class="ms-2 text-muted">Messengers. WhatsApp Name</label>
+                        <span asp-validation-for="VMMessenger.WhatsAppName" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-6">
+                        <input asp-for="VMMessenger.WhatsAppNumber" class="form-control" aria-required="true" placeholder="Messenger. WhatsApp phone number" />
+                        <label asp-for="VMMessenger.WhatsAppNumber" class="ms-2 text-muted">Messengers. WhatsApp phone number</label>
+                        <span asp-validation-for="VMMessenger.WhatsAppNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-4">
+                        <input asp-for="VMMessenger.TelegramName" class="form-control" aria-required="true" placeholder="TelegramName" />
+                        <label asp-for="VMMessenger.TelegramName" class="ms-2 text-muted">Messengers. Telegram Name</label>
+                        <span asp-validation-for="VMMessenger.TelegramName" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-4">
+                        <input asp-for="VMMessenger.TelegramNick" class="form-control" aria-required="true" placeholder="TelegramNick" />
+                        <label asp-for="VMMessenger.TelegramNick" class="ms-2 text-muted">Telegram Nick (@@nickname)</label>
+                        <span asp-validation-for="VMMessenger.TelegramNick" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-4">
+                        <input asp-for="VMMessenger.TelegramPhoneNumber" class="form-control" aria-required="true" placeholder="TelegramPhoneNumber" />
+                        <label asp-for="VMMessenger.TelegramPhoneNumber" class="ms-2 text-muted">TelegramPhoneNumber</label>
+                        <span asp-validation-for="VMMessenger.TelegramPhoneNumber" class="text-danger"></span>
+                    </div>
+
+                    <hr />
+                    <div class="form-floating mb-3 col-4">
+                        <input asp-for="VMAddress.PostalCode" class="form-control" aria-required="true" placeholder="PostalCode" />
+                        <label asp-for="VMAddress.PostalCode" class="ms-2 text-muted">PostalCode</label>
+                        <span asp-validation-for="VMAddress.PostalCode" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-4">
+                        <input asp-for="VMAddress.Country" class="form-control" aria-required="true" placeholder="Country" />
+                        <label asp-for="VMAddress.Country" class="ms-2 text-muted">Country</label>
+                        <span asp-validation-for="VMAddress.Country" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-4">
+                        <input asp-for="VMAddress.City" class="form-control" aria-required="true" placeholder="City" />
+                        <label asp-for="VMAddress.City" class="ms-2 text-muted">City</label>
+                        <span asp-validation-for="VMAddress.City" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-4">
+                        <input asp-for="VMAddress.Street" class="form-control" aria-required="true" placeholder="Street" />
+                        <label asp-for="VMAddress.Street" class="ms-2 text-muted">Street</label>
+                        <span asp-validation-for="VMAddress.Street" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-4">
+                        <input asp-for="VMAddress.BuildingNumber" class="form-control" aria-required="true" placeholder="BuildingNumber" />
+                        <label asp-for="VMAddress.BuildingNumber" class="ms-2 text-muted">BuildingNumber</label>
+                        <span asp-validation-for="VMAddress.BuildingNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-4">
+                        <input asp-for="VMAddress.Entrance" class="form-control" aria-required="true" placeholder="Entrance" />
+                        <label asp-for="VMAddress.Entrance" class="ms-2 text-muted">Entrance</label>
+                        <span asp-validation-for="VMAddress.Entrance" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-4">
+                        <input asp-for="VMAddress.Floor" class="form-control" aria-required="true" placeholder="Floor" />
+                        <label asp-for="VMAddress.Floor" class="ms-2 text-muted">Floor</label>
+                        <span asp-validation-for="VMAddress.Floor" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-4">
+                        <input asp-for="VMAddress.Flat" class="form-control" aria-required="true" placeholder="Flat" />
+                        <label asp-for="VMAddress.Flat" class="ms-2 text-muted">Flat</label>
+                        <span asp-validation-for="VMAddress.Flat" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-12">
+                        <input asp-for="VMAddress.Details" class="form-control" aria-required="true" placeholder="Flat" />
+                        <label asp-for="VMAddress.Details" class="ms-2 text-muted">Flat</label>
+                        <span asp-validation-for="VMAddress.Details" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3 text-center">
+                            <a asp-controller="Contact" asp-action="ContactList" class="btn btn-secondary">
+                                Back to Contact List
+                            </a>
+                        </div>
+                        <div class="col-3 text-center">
+                            <a asp-controller="Contact" asp-action="DeleteContact" asp-route-ContactId="@Model.ContactId" class="btn btn-danger">
+                                Delete
+                            </a>
+                        </div>
+                        <div class="col-3 text-center">
+                            <button id="reset-contact-btn" type="reset" class=" btn btn-lg btn-secondary">Reset</button>
+                        </div>
+                        <div class="col-3 text-center">
+                            <button id="save-contact-btn" type="submit" class=" btn btn-lg btn-primary">Save</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-3 text-center">
-                    <button id="reset-contact-btn" type="reset" class=" btn btn-lg btn-secondary">Reset</button>
-                </div>
-                <div class="col-3 text-center">
-                    <button id="save-contact-btn" type="submit" class=" btn btn-lg btn-primary">Save</button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
+
     </div>
 </div>
 
