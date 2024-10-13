@@ -18,8 +18,8 @@ HTTPGET /api/ContactAPI/GetOne/Id - Get particular contact details (Main card - 
 HTTPDELETE] /api/ContactAPI/Delete/Id - Delete contact
 
 ## Install:
-1) Clone from git or download (https://drive.google.com/file/d/1Si1w6XTNKWStfvM2f2yVcjTx0HtlFK99/view?usp=drive_link) and unpack archive, launch Contacts.sln
-2) Adjust DB connection settings. Navigate to file Contacts.Web\appsettings.json and modify block "DefaultConnection" to fit your DB connection parameters
+1) Clone from git, launch Contacts.sln
+2) Adjust DB connection settings. Navigate to file Contacts.Web\appsettings.json and modify block "DefaultConnection" to fit your DB connection parameters. Demo uses MS SQL Server, DB is created automatically on model creating.
 3) Create DB, tables and demo contact:
 - automatically:  
 set Contacts.Web as a startup project and launch app. At every launch pending migrations will be applied automatically and tables will be seeded with demo contacts if they are missing. To stop seeding you can comment or delete string with method "DbSeed();" from file Contacts.Web\program.cs. 
