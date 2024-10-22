@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Contacts.Domain.Entities.VM
+namespace Contacts.Domain.Entities.DTO
 {
     /// <summary>
     /// Model/DTO for trasferring data. Used avoid unnecesary disclosure of internal data structure. 
@@ -19,7 +19,7 @@ namespace Contacts.Domain.Entities.VM
     public class ContactDTO
     {
         [ValidateNever]
-        public UInt64 ContactId { get; set; }
+        public ulong ContactId { get; set; }
         [MaxLength(127)]
         [DisplayName("First Name")]
         public string ContactFirstName { get; set; } = "";

@@ -21,9 +21,9 @@ namespace Contacts.Domain.Entities
         [Display(Name = "Last Name")]
         public string ContactLastName { get; set; } = "";
 
-        public string? Description { get; set; }
-        public string? ContactEmail { get; set; }
-        public string? ContactPhoneNumber { get; set; }
+        public string Description { get; set; } = "";
+        public string ContactEmail { get; set; } = "";
+        public string ContactPhoneNumber { get; set; } = "";
         public string PhotoURL { get; set; } = @"\images\avatar.jpg";
 
         public DateTime RegDate { get; set; }
