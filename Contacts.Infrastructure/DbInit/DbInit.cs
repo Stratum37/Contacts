@@ -73,47 +73,7 @@ namespace Contacts.Infrastructure.DbInit
                 _db.Add(address);
                 _db.SaveChanges();
             }
-
-            var isCreatorContactExists = _db.Contacts.AsNoTracking().FirstOrDefault(c => c.ContactFirstName == "Aleksandr" && c.ContactLastName == "Ilev");
-            if (isCreatorContactExists == null)
-            {
-                Contact contact = new()
-                {
-                    ContactFirstName = "Aleksandr",
-                    ContactLastName = "Ilev",
-                    ContactEmail = "synerby@gmail.com",
-                    ContactPhoneNumber = "+79639648264",
-                    Description = "Wanted to be sure you see my contacts =）",
-                    RegDate = DateTime.UtcNow,
-                    ModifiedDT = DateTime.UtcNow
-                };
-                _db.Contacts.Add(contact);
-                _db.SaveChanges();
-                Messenger messenger = new()
-                {
-                    isVisibleAPI = true,
-                    ContactId = contact.Id,
-                    MainEmail = "aleksandr@1984@mail.ru",
-                    TelegramName = "A I",
-                    TelegramNick = "+79639648264",
-                    TelegramPhoneNumber = "+79639648264",
-                    WhatsAppNumber = "+79639648264"
-                };
-                FullAddress address = new()
-                {
-                    isVisibleAPI = true,
-                    ContactId = contact.Id,
-                    PostalCode = "",
-                    Country = "VietNam",
-                    City = "DaNang",
-                    Details = "While traveling (me and my wife), staying for 2-3 months in each country we visit. Remote, available more than 3 hours a day.",
-                };
-
-                _db.Add(messenger);
-                _db.Add(address);
-                _db.SaveChanges();
                 
-            }
             return;
         }
     }
